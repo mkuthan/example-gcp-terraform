@@ -1,0 +1,12 @@
+[
+  {
+    "name": "field_1",
+    "type": "STRING",
+    "mode": "REQUIRED"
+  },
+  {
+    "name": "field_2",
+    "type": "NUMERIC",
+    "mode": "REQUIRED"
+  }
+]
