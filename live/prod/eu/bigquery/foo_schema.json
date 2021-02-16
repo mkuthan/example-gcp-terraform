@@ -1,0 +1,22 @@
+[
+  {
+    "mode": "REQUIRED",
+    "name": "timestamp",
+    "type": "TIMESTAMP"
+  },
+  {
+    "mode": "REQUIRED",
+    "name": "id",
+    "type": "STRING"
+  },
+  {
+    "mode": "NULLABLE",
+    "name": "foo_name",
+    "type": "STRING"
+  },
+  {
+    "mode": "NULLABLE",
+    "name": "foo_description",
+    "type": "STRING"
+  }
+]
