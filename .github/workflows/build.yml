@@ -4,17 +4,20 @@ on:
   pull_request:
 
 jobs:
-  terraform-plan:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.3.4
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
 
-      - uses: google-github-actions/setup-gcloud@0.2.1
+      - name: Setup gcloud
+        uses: google-github-actions/setup-gcloud@0.2.1
         with:
           project_id: ${{ secrets.GCP_PROJECT_ID }}
           service_account_key: ${{ secrets.GCP_SA_KEY }}
 
-      - uses: hashicorp/setup-terraform@v1.3.2
+      - name: Setup terraform
+        uses: hashicorp/setup-terraform@v1.3.2
 
       - name: Terraform init
         run: terraform init -input=false
@@ -27,9 +30,8 @@ jobs:
         run: terraform plan -input=false -no-color
         continue-on-error: true
 
-      - uses: actions/github-script@3.1.0
-
       - name: Github comment
+        uses: actions/github-script@3.1.0
         env:
           STDOUT: "```${{ steps.plan.outputs.stdout }}```"
         with:
