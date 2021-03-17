@@ -24,6 +24,23 @@ jobs:
 
       - name: Terraform init
         run: terraform init -input=false
+        working-directory: terraform
 
       - name: Terraform apply
         run: terraform apply -input=false -auto-approve
+        working-directory: terraform
+
+      - name: Deploy cloud function
+        id: deploy
+        uses: google-github-actions/deploy-cloud-functions@v0.4.0
+        with:
+          name: helloworld
+          runtime: python39
+          entry_point: hello_world
+          region: europe-west1
+          source_dir: helloworld
+          max_instances: 1
+          timeout: 30
+
+      - name: Smoke test
+        run: curl "${{ steps.deploy.outputs.url }}"
