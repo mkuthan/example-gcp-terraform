@@ -29,9 +29,9 @@ jobs:
           # exit-zero treats all errors as warnings
           flake8 helloworld tests --count --exit-zero --max-complexity=10 --max-line-length=150 --statistics
 
-      - name: Test with pytest
-        run: |
-          PYTHONPATH=. pytest
+#      - name: Test with pytest
+#        run: |
+#          PYTHONPATH=. pytest
 
   terraform:
     runs-on: ubuntu-latest
