@@ -31,7 +31,7 @@ jobs:
 
       - name: Test with pytest
         run: |
-          pytest helloworld
+          PYTHONPATH=. pytest
 
   terraform:
     runs-on: ubuntu-latest
