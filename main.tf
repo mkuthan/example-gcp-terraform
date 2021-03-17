@@ -30,6 +30,6 @@ resource "random_string" "id" {
 }
 
 resource "google_storage_bucket" "example_bucket" {
-  name = "stage-${random_string.id.result}"
+  name = "experiment1-${random_string.id.result}"
   location = var.bucket_location
 }
