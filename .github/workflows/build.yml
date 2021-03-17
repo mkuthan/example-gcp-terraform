@@ -22,13 +22,16 @@ jobs:
 
       - name: Terraform init
         run: terraform init -input=false
+        working-directory: terraform
 
       - name: Terraform validate
         run: terraform validate -no-color
+        working-directory: terraform
 
       - name: Terraform plan
         id: plan
         run: terraform plan -input=false -no-color
+        working-directory: terraform
         continue-on-error: true
 
       - name: Github comment

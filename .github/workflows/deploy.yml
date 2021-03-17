@@ -24,6 +24,8 @@ jobs:
 
       - name: Terraform init
         run: terraform init -input=false
+        working-directory: terraform
 
       - name: Terraform apply
         run: terraform apply -input=false -auto-approve
+        working-directory: terraform
