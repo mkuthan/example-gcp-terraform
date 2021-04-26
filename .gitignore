@@ -1,3 +1,4 @@
+**/*.tfplan
 **/.pytest_cache/*
 **/.terraform/*
 **/venv/*
