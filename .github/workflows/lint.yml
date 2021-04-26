@@ -6,21 +6,6 @@ on:
       - '!master'
 
 jobs:
-  validate:
-    runs-on: ubuntu-latest
-
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Terraform validate
-        uses: dflook/terraform-validate@v1
-        with:
-          path: terraform
-
   fmt-check:
     runs-on: ubuntu-latest
 
@@ -34,4 +19,4 @@ jobs:
       - name: Terraform fmt-check
         uses: dflook/terraform-fmt-check@v1
         with:
-          path: terraform
+          path: .
