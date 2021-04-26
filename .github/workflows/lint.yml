@@ -3,10 +3,11 @@ name: Lint
 on:
   push:
     branches:
-      - !master
+      - '*'
+      - '!master'
 
 jobs:
-  fmt-check:
+  lint:
     runs-on: ubuntu-latest
 
     env:
