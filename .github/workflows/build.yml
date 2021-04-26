@@ -33,7 +33,7 @@ jobs:
   #        run: |
   #          PYTHONPATH=. pytest
 
-  terraform:
+  terraform-plan:
     runs-on: ubuntu-latest
 
     env:
